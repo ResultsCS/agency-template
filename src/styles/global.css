@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1e3a5f;
+  --color-primary-dark: #162d4a;
+  --color-primary-light: #2a5080;
+  --color-accent: #d4a028;
+  --color-accent-dark: #b8891f;
+  --color-accent-light: #e4b84a;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Mobile menu icon toggle (CSS-only, no JS) */
+#mobile-menu-toggle:checked ~ * .menu-open {
+  display: none;
+}
+#mobile-menu-toggle:checked ~ * .menu-close {
+  display: block;
+}

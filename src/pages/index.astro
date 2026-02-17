@@ -1,17 +1,199 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import TrustBadgeRow from '../components/TrustBadgeRow.astro';
+import ServiceGrid from '../components/ServiceGrid.astro';
+import StatCounter from '../components/StatCounter.astro';
+import TestimonialSection from '../components/TestimonialSection.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import CTABanner from '../components/CTABanner.astro';
+import ContactForm from '../components/ContactForm.astro';
+import LocationSection from '../components/LocationSection.astro';
 
+const businessName = "Summit Legal Group";
+const phone = "(303) 555-0123";
+const email = "info@summitlegalgroup.com";
+const siteUrl = "https://summitlegalgroup.com";
+const address = {
+  street: "1550 Court Place, Suite 300",
+  city: "Denver",
+  state: "CO",
+  zip: "80202",
+};
+
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "#services" },
+  { label: "About", href: "#about" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Contact", href: "#contact" },
+];
+
+const services = [
+  {
+    title: "Personal Injury",
+    description: "Injured in an accident? We fight aggressively to get you the maximum compensation you deserve for medical bills, lost wages, and pain and suffering.",
+    link: "/services/personal-injury",
+  },
+  {
+    title: "Family Law",
+    description: "Divorce, custody, and support matters handled with sensitivity and strength. We protect your family's interests through every step of the process.",
+    link: "/services/family-law",
+  },
+  {
+    title: "Criminal Defense",
+    description: "Facing criminal charges? Our experienced defense attorneys will build a strong case to protect your rights, your freedom, and your future.",
+    link: "/services/criminal-defense",
+  },
+  {
+    title: "Estate Planning",
+    description: "Secure your family's future with wills, trusts, and estate plans tailored to your unique situation. Plan ahead with confidence.",
+    link: "/services/estate-planning",
+  },
+  {
+    title: "Business Law",
+    description: "From formation to litigation, we provide comprehensive legal counsel to businesses of all sizes throughout the Denver metro area.",
+    link: "/services/business-law",
+  },
+  {
+    title: "Workers' Compensation",
+    description: "Hurt on the job? We help injured workers navigate the claims process and fight for the benefits they're entitled to receive.",
+    link: "/services/workers-compensation",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Sarah M.",
+    rating: 5,
+    quote: "After my car accident, Summit Legal Group fought tirelessly for my case. They secured a settlement that covered all my medical bills and then some. I couldn't have asked for better representation.",
+    title: "Personal Injury Client",
+  },
+  {
+    name: "James R.",
+    rating: 5,
+    quote: "Going through a divorce was the hardest thing I've ever done, but the team at Summit made it bearable. They were compassionate, professional, and always had my children's best interests at heart.",
+    title: "Family Law Client",
+  },
+  {
+    name: "Maria L.",
+    rating: 5,
+    quote: "When I was wrongfully accused, Summit Legal Group believed in me from day one. Their criminal defense team was relentless and got my charges completely dismissed. Forever grateful.",
+    title: "Criminal Defense Client",
+  },
+];
+
+const faqs = [
+  {
+    question: "How much does an initial consultation cost?",
+    answer: "We offer free initial consultations for all new clients. During this meeting, we'll review your case, explain your legal options, and outline a potential strategy — all at no cost or obligation to you.",
+  },
+  {
+    question: "How long will my case take?",
+    answer: "Every case is unique, and timelines vary depending on the complexity of your situation. During your consultation, we'll give you a realistic estimate based on the specifics of your case. We work efficiently while never cutting corners.",
+  },
+  {
+    question: "Do you offer payment plans?",
+    answer: "Yes. We understand that legal fees can be a concern, and we offer flexible payment plans. For personal injury cases, we work on a contingency fee basis — meaning you don't pay unless we win your case.",
+  },
+  {
+    question: "What areas of Colorado do you serve?",
+    answer: "Our office is located in downtown Denver, but we serve clients throughout the entire Denver metro area including Aurora, Lakewood, Littleton, Boulder, and surrounding communities across Colorado.",
+  },
+  {
+    question: "What should I bring to my first appointment?",
+    answer: "Bring any documents related to your case — police reports, medical records, contracts, correspondence, photos, or anything else you think might be relevant. Don't worry if you don't have everything; we'll guide you through what's needed.",
+  },
+  {
+    question: "Can I switch attorneys if I already have one?",
+    answer: "Yes. You have the right to change legal representation at any time. We can review your current situation and help make the transition as smooth as possible if you decide Summit Legal Group is the right fit.",
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Summit Legal Group | Denver's Trusted Law Firm"
+  description="Summit Legal Group provides experienced legal representation in personal injury, family law, criminal defense, and more. Serving Denver, CO and surrounding areas. Call (303) 555-0123 for a free consultation."
+  canonicalURL={siteUrl}
+  businessName={businessName}
+  phone={phone}
+  email={email}
+  address={address}
+  openingHours={["Mo-Fr 08:00-18:00", "Sa 09:00-14:00"]}
+  navLinks={navLinks}
+>
+  <HeroSection
+    headline="Protecting Your Rights in Denver"
+    subheadline="For over 25 years, Summit Legal Group has delivered aggressive, results-driven legal representation. Whether you're facing a personal injury claim, a family dispute, or criminal charges — we fight for you."
+    ctaText="Free Consultation"
+    ctaLink="#contact"
+    phone={phone}
+  />
+
+  <TrustBadgeRow
+    badges={[
+      { value: "25+", label: "Years of Experience" },
+      { value: "5,000+", label: "Cases Handled" },
+      { value: "98%", label: "Client Satisfaction" },
+      { value: "$50M+", label: "Recovered for Clients" },
+    ]}
+  />
+
+  <section id="services">
+    <ServiceGrid
+      headline="Our Practice Areas"
+      subtext="We provide comprehensive legal services to individuals and families throughout the Denver metro area."
+      services={services}
+    />
+  </section>
+
+  <StatCounter
+    stats={[
+      { number: "25+", label: "Years of Experience" },
+      { number: "5,000+", label: "Cases Handled" },
+      { number: "98%", label: "Success Rate" },
+      { number: "$50M+", label: "Recovered" },
+    ]}
+  />
+
+  <TestimonialSection
+    headline="What Our Clients Say"
+    testimonials={testimonials}
+  />
+
+  <section id="faq">
+    <FAQAccordion
+      headline="Frequently Asked Questions"
+      faqs={faqs}
+    />
+  </section>
+
+  <CTABanner
+    headline="Ready to Discuss Your Case?"
+    subtext="Get the experienced legal representation you deserve. Your first consultation is free and confidential."
+    phone={phone}
+    ctaText="Schedule a Free Consultation"
+    ctaLink="#contact"
+  />
+
+  <ContactForm
+    headline="Get Your Free Consultation"
+    subtext="Fill out the form below and a member of our team will contact you within 24 hours."
+  />
+
+  <LocationSection
+    businessName={businessName}
+    address={address}
+    phone={phone}
+    email={email}
+    hours={[
+      { day: "Monday - Friday", time: "8:00 AM - 6:00 PM" },
+      { day: "Saturday", time: "9:00 AM - 2:00 PM" },
+      { day: "Sunday", time: "Closed" },
+    ]}
+    serviceAreas={[
+      "Denver", "Aurora", "Lakewood", "Littleton", "Englewood",
+      "Arvada", "Westminster", "Thornton", "Boulder", "Centennial",
+    ]}
+  />
+</BaseLayout>
